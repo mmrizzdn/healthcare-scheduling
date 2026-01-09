@@ -81,7 +81,7 @@ Sistem penjadwalan janji temu dokter dan pasien berbasis microservices yang diba
 
 ## Contoh GraphQL Queries/Mutations
 
-### Autentikasi
+### Auth
 
 **Registrasi User:**
 ```graphql
@@ -236,7 +236,7 @@ mutation {
 }
 ```
 
-### Penjadwalan Janji Temu
+### Manajemen Jadwal
 
 **Buat Jadwal:**
 ```graphql
