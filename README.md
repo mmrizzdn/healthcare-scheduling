@@ -170,7 +170,7 @@ mutation {
 }
 ```
 
-**Delete Customer:**
+**Hapus Customer:**
 ```graphql
 mutation {
   deleteCustomer(id: "customer-uuid") {
@@ -226,7 +226,7 @@ mutation {
 }
 ```
 
-**Delete Dokter:**
+**Hapus Dokter:**
 ```graphql
 mutation {
   deleteDoctor(id: "doctor-uuid") {
