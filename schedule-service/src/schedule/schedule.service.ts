@@ -94,6 +94,10 @@ export class ScheduleService {
         const offsetNumber = offset !== undefined ? offset : (page - 1) * limit;
         const [data, total] = await Promise.all([
             this.prisma.schedule.findMany({
+                include: {
+                    customer: true,
+                    doctor: true,
+                },
                 skip: offsetNumber,
                 take: limit,
                 orderBy: { createdAt: 'desc' },
@@ -127,6 +131,10 @@ export class ScheduleService {
         this.logger.debug(`Cache MISS for ${cacheKey}`);
         const schedule = await this.prisma.schedule.findUnique({
             where: { id },
+            include: {
+                customer: true,
+                doctor: true,
+            },
         });
 
         if (!schedule) {

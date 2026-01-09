@@ -154,6 +154,20 @@ query {
 }
 ```
 
+
+**Detail Customer:**
+```graphql
+query {
+  customer(id: "customer-uuid") {
+    id
+    name
+    email
+    createdAt
+    updatedAt
+  }
+}
+```
+
 **Update Customer:**
 ```graphql
 mutation {
@@ -212,6 +226,19 @@ query {
 }
 ```
 
+
+**Detail Dokter:**
+```graphql
+query {
+  doctor(id: "doctor-uuid") {
+    id
+    name
+    createdAt
+    updatedAt
+  }
+}
+```
+
 **Update Dokter:**
 ```graphql
 mutation {
@@ -266,12 +293,38 @@ query {
       id
       objective
       scheduledAt
-      customer { name email }
-      doctor { name }
+      customer {
+        name
+        email
+      }
+      doctor {
+        name
+      }
       createdAt
       updatedAt
     }
     total
+  }
+}
+```
+
+
+**Detail Jadwal:**
+```graphql
+query {
+  schedule(id: "schedule-uuid") {
+    id
+    objective
+    scheduledAt
+    customer {
+      name
+      email
+    }
+    doctor {
+      name
+    }
+    createdAt
+    updatedAt
   }
 }
 ```

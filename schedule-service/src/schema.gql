@@ -22,7 +22,7 @@ type Customer {
   createdAt: DateTime!
   email: String!
   id: ID!
-  name: String!Healthcare Scheduling System Architecture.jpg
+  name: String!
   updatedAt: DateTime!
 }
 
@@ -63,23 +63,114 @@ type GetSchedulesDto {
 }
 
 type Mutation {
+  """Create a new customer with name and email. Requires authentication."""
   createCustomer(input: CreateCustomerDto!): Customer!
+
+  """Register a new doctor in the system. Requires authentication."""
   createDoctor(input: CreateDoctorDto!): Doctor!
+
+  """
+  Create a new appointment schedule between a customer and a doctor. Sends confirmation email automatically.
+  """
   createSchedule(input: CreateScheduleDto!): Schedule!
-  deleteCustomer(id: String!): Customer!
-  deleteDoctor(id: String!): Doctor!
-  deleteSchedule(id: String!): Schedule!
-  updateCustomer(id: String!, input: UpdateCustomerDto!): Customer!
-  updateDoctor(id: String!, input: UpdateDoctorDto!): Doctor!
+
+  """Delete a customer by ID. Returns the deleted customer data."""
+  deleteCustomer(
+    """Customer UUID to delete"""
+    id: String!
+  ): Customer!
+
+  """Remove a doctor from the system. Returns the deleted doctor data."""
+  deleteDoctor(
+    """Doctor UUID to delete"""
+    id: String!
+  ): Doctor!
+
+  """
+  Cancel/delete an appointment. Sends cancellation email to the customer automatically.
+  """
+  deleteSchedule(
+    """Schedule UUID to delete"""
+    id: String!
+  ): Schedule!
+
+  """Update an existing customer. Partial updates are supported."""
+  updateCustomer(
+    """Customer UUID to update"""
+    id: String!
+    input: UpdateCustomerDto!
+  ): Customer!
+
+  """Update doctor information by ID"""
+  updateDoctor(
+    """Doctor UUID to update"""
+    id: String!
+    input: UpdateDoctorDto!
+  ): Doctor!
 }
 
 type Query {
-  customer(id: String!): Customer!
-  customers(limit: Int! = 10, offset: Int! = 0, page: Int! = 1): GetCustomersDto!
-  doctor(id: String!): Doctor!
-  doctors(limit: Int! = 10, offset: Int! = 0, page: Int! = 1): GetDoctorsDto!
-  schedule(id: String!): Schedule!
-  schedules(limit: Int! = 10, offset: Int! = 0, page: Int! = 1): GetSchedulesDto!
+  """Get a single customer by ID"""
+  customer(
+    """Customer UUID"""
+    id: String!
+  ): Customer!
+
+  """
+  Get paginated list of customers. Supports page, limit, and offset parameters.
+  """
+  customers(
+    """Number of items per page"""
+    limit: Int! = 10
+
+    """Number of items to skip"""
+    offset: Int! = 0
+
+    """Page number (starts from 1)"""
+    page: Int! = 1
+  ): GetCustomersDto!
+
+  """Get a single doctor by ID"""
+  doctor(
+    """Doctor UUID"""
+    id: String!
+  ): Doctor!
+
+  """
+  Get paginated list of doctors. Supports page, limit, and offset parameters.
+  """
+  doctors(
+    """Number of items per page"""
+    limit: Int! = 10
+
+    """Number of items to skip"""
+    offset: Int! = 0
+
+    """Page number (starts from 1)"""
+    page: Int! = 1
+  ): GetDoctorsDto!
+
+  """
+  Get a single schedule/appointment by ID with customer and doctor details
+  """
+  schedule(
+    """Schedule UUID"""
+    id: String!
+  ): Schedule!
+
+  """
+  Get paginated list of all schedules/appointments. Supports page, limit, and offset parameters.
+  """
+  schedules(
+    """Number of items per page"""
+    limit: Int! = 10
+
+    """Number of items to skip"""
+    offset: Int! = 0
+
+    """Page number (starts from 1)"""
+    page: Int! = 1
+  ): GetSchedulesDto!
 }
 
 type Schedule {

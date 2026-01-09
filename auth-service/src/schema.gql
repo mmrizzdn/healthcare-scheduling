@@ -18,7 +18,7 @@ type LoginResponse {
 }
 
 type Mutation {
-  """Login a user and get an access token"""
+  """Login an user and get an access token"""
   login(input: LoginDto!): LoginResponse!
 
   """Register a new user with email and password"""
@@ -26,7 +26,7 @@ type Mutation {
 }
 
 type Query {
-  """Validasi token dan return user info"""
+  """Validate access token and return user info"""
   validateToken(token: String!): User!
 }
 
