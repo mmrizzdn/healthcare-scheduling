@@ -40,13 +40,13 @@ describe('ScheduleService', () => {
 
     const mockCustomer = {
         id: 'customer-1',
-        name: 'John Doe',
-        email: 'john@example.com',
+        name: 'Muhammad Ammar Izzudin',
+        email: 'ammar@example.com',
     };
 
     const mockDoctor = {
         id: 'doctor-1',
-        name: 'Dr. Smith',
+        name: 'dr. Muhammad Ammar Izzudin',
     };
 
     const mockSchedule = {

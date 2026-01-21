@@ -17,8 +17,8 @@ describe('CustomerResolver', () => {
 
     const mockCustomer = {
         id: 'customer-1',
-        name: 'John Doe',
-        email: 'john@example.com',
+        name: 'Muhammad Ammar Izzudin',
+        email: 'ammar@example.com',
     };
 
     beforeEach(async () => {
@@ -47,8 +47,8 @@ describe('CustomerResolver', () => {
             mockCustomerService.createCustomer.mockResolvedValue(mockCustomer);
 
             const result = await resolver.createCustomer({
-                name: 'John Doe',
-                email: 'john@example.com',
+                name: 'Muhammad Ammar Izzudin',
+                email: 'ammar@example.com',
             });
 
             expect(result).toEqual(mockCustomer);
@@ -81,14 +81,14 @@ describe('CustomerResolver', () => {
         it('should update a customer', async () => {
             mockCustomerService.updateCustomer.mockResolvedValue({
                 ...mockCustomer,
-                name: 'Jane Doe',
+                name: 'Ewok',
             });
 
             const result = await resolver.updateCustomer('customer-1', {
-                name: 'Jane Doe',
+                name: 'Ewok',
             });
 
-            expect(result.name).toBe('Jane Doe');
+            expect(result.name).toBe('Ewok');
         });
     });
 

@@ -30,10 +30,10 @@ describe('EmailService', () => {
 
     describe('sendScheduleCreatedEmail', () => {
         const emailData = {
-            customerEmail: 'john@example.com',
-            customerName: 'John Doe',
-            doctorName: 'Dr. Smith',
-            objective: 'Checkup',
+            customerEmail: 'ammar@example.com',
+            customerName: 'Muhammad Ammar Izzudin',
+            doctorName: 'dr. Muhammad Ammar Izzudin',
+            objective: 'Sakit Gigi',
             scheduledAt: new Date('2026-01-15T10:00:00Z'),
         };
 
@@ -54,10 +54,10 @@ describe('EmailService', () => {
 
     describe('sendScheduleDeletedEmail', () => {
         const emailData = {
-            customerEmail: 'john@example.com',
-            customerName: 'John Doe',
-            doctorName: 'Dr. Smith',
-            objective: 'Checkup',
+            customerEmail: 'ammar@example.com',
+            customerName: 'Muhammad Ammar Izzudin',
+            doctorName: 'dr. Muhammad Ammar Izzudin',
+            objective: 'Sakit Gigi',
             scheduledAt: new Date('2026-01-15T10:00:00Z'),
         };
 

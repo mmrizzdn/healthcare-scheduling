@@ -28,8 +28,8 @@ describe('CustomerService', () => {
 
     const mockCustomer = {
         id: 'customer-1',
-        name: 'John Doe',
-        email: 'john@example.com',
+        name: 'Muhammad Ammar Izzudin',
+        email: 'ammar@example.com',
         createdAt: new Date(),
         updatedAt: new Date(),
     };
@@ -55,7 +55,7 @@ describe('CustomerService', () => {
     });
 
     describe('createCustomer', () => {
-        const createDto = { name: 'John Doe', email: 'john@example.com' };
+        const createDto = { name: 'Muhammad Ammar Izzudin', email: 'ammar@example.com' };
 
         it('should create a customer successfully', async () => {
             mockPrismaService.customer.findUnique.mockResolvedValue(null);
@@ -142,18 +142,18 @@ describe('CustomerService', () => {
     });
 
     describe('updateCustomer', () => {
-        const updateDto = { name: 'Jane Doe' };
+        const updateDto = { name: 'Ewok' };
 
         it('should update customer successfully', async () => {
             mockCacheManager.get.mockResolvedValue(mockCustomer);
             mockPrismaService.customer.update.mockResolvedValue({
                 ...mockCustomer,
-                name: 'Jane Doe',
+                name: 'Ewok',
             });
 
             const result = await service.updateCustomer('customer-1', updateDto);
 
-            expect(result.name).toBe('Jane Doe');
+            expect(result.name).toBe('Ewok');
             expect(mockCacheManager.del).toHaveBeenCalled();
         });
 

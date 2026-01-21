@@ -88,6 +88,9 @@
       "**/*.(t|j)s",
       "!**/generated/**"
     ],
+    "coveragePathIgnorePatterns": [
+        "/generated/"
+    ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "moduleNameMapper": {

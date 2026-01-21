@@ -28,7 +28,7 @@ describe('DoctorService', () => {
 
     const mockDoctor = {
         id: 'doctor-1',
-        name: 'Dr. Smith',
+        name: 'dr. Muhammad Ammar Izzudin',
         createdAt: new Date(),
         updatedAt: new Date(),
     };
@@ -54,7 +54,7 @@ describe('DoctorService', () => {
     });
 
     describe('createDoctor', () => {
-        const createDto = { name: 'Dr. Smith' };
+        const createDto = { name: 'dr. Muhammad Ammar Izzudin' };
 
         it('should create a doctor successfully', async () => {
             mockPrismaService.doctor.create.mockResolvedValue(mockDoctor);
@@ -129,18 +129,18 @@ describe('DoctorService', () => {
     });
 
     describe('updateDoctor', () => {
-        const updateDto = { name: 'Dr. Johnson' };
+        const updateDto = { name: 'dr. Ewok' };
 
         it('should update doctor successfully', async () => {
             mockCacheManager.get.mockResolvedValue(mockDoctor);
             mockPrismaService.doctor.update.mockResolvedValue({
                 ...mockDoctor,
-                name: 'Dr. Johnson',
+                name: 'dr. Ewok',
             });
 
             const result = await service.updateDoctor('doctor-1', updateDto);
 
-            expect(result.name).toBe('Dr. Johnson');
+            expect(result.name).toBe('dr. Ewok');
             expect(mockCacheManager.del).toHaveBeenCalled();
         });
     });

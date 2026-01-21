@@ -60,7 +60,7 @@ services:
       NODE_ENV: ${NODE_ENV:-development}
       PORT: 3002
       DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-healthcare-scheduling}?schema=schedule
-      AUTH_SERVICE_URL: http://auth-service:3001
+      AUTH_SERVICE_URL: http://auth-service:3001/graphql
       JWT_SECRET: ${JWT_SECRET:-healthcare-scheduling-secret}
       SMTP_HOST: ${SMTP_HOST:-}
       SMTP_PORT: ${SMTP_PORT:-587}

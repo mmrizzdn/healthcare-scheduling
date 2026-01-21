@@ -17,7 +17,7 @@ describe('DoctorResolver', () => {
 
     const mockDoctor = {
         id: 'doctor-1',
-        name: 'Dr. Smith',
+        name: 'dr. Muhammad Ammar Izzudin',
     };
 
     beforeEach(async () => {
@@ -45,7 +45,7 @@ describe('DoctorResolver', () => {
         it('should create a doctor', async () => {
             mockDoctorService.createDoctor.mockResolvedValue(mockDoctor);
 
-            const result = await resolver.createDoctor({ name: 'Dr. Smith' });
+            const result = await resolver.createDoctor({ name: 'dr. Muhammad Ammar Izzudin' });
 
             expect(result).toEqual(mockDoctor);
         });
@@ -76,14 +76,14 @@ describe('DoctorResolver', () => {
         it('should update a doctor', async () => {
             mockDoctorService.updateDoctor.mockResolvedValue({
                 ...mockDoctor,
-                name: 'Dr. Johnson',
+                name: 'dr. Ewok',
             });
 
             const result = await resolver.updateDoctor('doctor-1', {
-                name: 'Dr. Johnson',
+                name: 'dr. Ewok',
             });
 
-            expect(result.name).toBe('Dr. Johnson');
+            expect(result.name).toBe('dr. Ewok');
         });
     });
 
